@@ -1,11 +1,11 @@
 /* Selectors in HTML */
 
 h1 {
-    font-family: 'Fondamento';
+    font-family: "Fondamento";
 }
 
 p {
-    font-family: 'Roboto';
+    font-family: "Roboto";
 }
 
 #idselect {
@@ -16,29 +16,26 @@ p {
     color: blue;
 }
 
-
 /* Fonts in HTML */
 
 #head1 {
-    font-family: 'Abril Fatface', cursive;
+    font-family: "Abril Fatface", cursive;
 }
 
 #para1 {
-    font-family: 'Lobster', cursive;
+    font-family: "Lobster", cursive;
 }
-
 
 /* Background in HTML */
 
 .bg-h1 {
-    background-color: #2D4B65;
+    background-color: #2d4b65;
     color: white;
 }
 
 .bg-para {
-    background-color: #B0C6CF;
+    background-color: #b0c6cf;
 }
-
 
 /* Text Alignment in HTML */
 
