@@ -1,0 +1,47 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 600,
+    "projection": { "type": "equirectangular" },
+    "data": {
+        "url": "../data/australia-states-territories.topojson",
+        "format": {
+            "type": "topojson",
+            "feature": "STE_2021_AUST_GDA2020"
+        }
+    },
+    "transform": [
+        {
+            "lookup": "properties.STE_NAME21",
+            "from": {
+                "data": {
+                    "url": "../data/Australia-Quality-of-life.csv"
+                },
+                "key": "State",
+                "fields": ["Rank", "Housing"]
+            }
+        },
+        { "calculate": "datum.Rank * 0.1", "as": "City Rank" }
+    ],
+    "mark": {
+        "type": "geoshape"
+    },
+    "encoding": {
+        "color": {
+            "field": "City Rank",
+            "type": "quantitative"
+        },
+        "tooltip": [
+            {
+                "field": "properties.STE_NAME21",
+                "type": "nominal",
+                "title": "State"
+            },
+            {
+                "field": "City Rank",
+                "type": "quantitative",
+                "title": "City Rank"
+            }
+        ]
+    }
+}

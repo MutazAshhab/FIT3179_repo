@@ -1,0 +1,19 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 450,
+    "projection": { "type": "equirectangular" },
+    "layer": [
+        {
+            "data": {
+                "url": "../data/australia.topojson",
+                "format": { "type": "topojson", "feature": "australia.geo" }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "lightgray",
+                "stroke": "white"
+            }
+        }
+    ]
+}
