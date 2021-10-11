@@ -10,5 +10,55 @@
             "feature": "custom-all areas-.geo"
         }
     },
-    "mark": { "type": "geoshape", "fill": "lightgray", "stroke": "white" }
+    "transform": [
+        {
+            "lookup": "properties.continent",
+            "from": {
+                "data": {
+                    "url": "https://raw.githubusercontent.com/Taz17/FIT3179_repo/master/playground/data/quality-of-life-by-continent.csv"
+                },
+                "key": "Continent",
+                "fields": [
+                    "Housing",
+                    "Cost of Living",
+                    "Startups",
+                    "Venture Capital",
+                    "Travel Connectivity",
+                    "Commute",
+                    "Business Freedom",
+                    "Safety",
+                    "Healthcare",
+                    "Education",
+                    "Environmental Quality",
+                    "Economy",
+                    "Taxation",
+                    "Internet Access",
+                    "Leisure & Culture",
+                    "Tolerance",
+                    "Outdoors"
+                ]
+            }
+        },
+        { "calculate": "datum.Housing + 1", "as": "Housing" }
+    ],
+    "mark": { "type": "geoshape" },
+    "encoding": {
+        "color": {
+            "field": "Housing",
+            "type": "quantitative",
+            "scale": {
+                "type": "linear",
+                "domain": [5.0, 9.0],
+                "range": ["#A1AADC", "#447EFF", "#2A3990"]
+            }
+        },
+        "tooltip": [
+            {
+                "field": "properties.continent",
+                "type": "nominal",
+                "title": "Continent"
+            },
+            { "field": "Housing", "type": "quantitative", "title": "Housing" }
+        ]
+    }
 }
