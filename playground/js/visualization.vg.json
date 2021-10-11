@@ -1,5 +1,14 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 600,
-    "height": 450
+    "height": 450,
+    "projection": { "type": "equirectangular" },
+    "data": {
+        "url": "https://raw.githubusercontent.com/Taz17/FIT3179_repo/master/playground/data/continents.topojson.json",
+        "format": {
+            "type": "topojson",
+            "feature": "custom-all areas-.geo"
+        }
+    },
+    "mark": { "type": "geoshape", "fill": "lightgray", "stroke": "white" }
 }
